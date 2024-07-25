@@ -1,6 +1,6 @@
 "use client"
 import React,{useEffect} from 'react'
-import AddSchools from "@/app/components/addSchool"
+import AddSchools from "@/app/components/AddSchool"
 const page = () => {
   useEffect(() => {
     document.body.style.overflow = 'hidden'; 
