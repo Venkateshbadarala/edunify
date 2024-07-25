@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 const ShowSchools = () => {
   const [schools, setSchools] = useState([]);
@@ -39,9 +40,11 @@ const ShowSchools = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {schools.map((school) => (
           <div key={school.id} className="bg-cyan-800 shadow-md rounded-lg overflow-hidden">
-            <img
+            <Image
               src={school.image || 'https://placehold.co/300x300.png'}
               alt={school.name}
+              width={300} // Update with appropriate width
+              height={300} // Update with appropriate height
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
@@ -49,7 +52,6 @@ const ShowSchools = () => {
               <p className="text-white mb-2">{school.address}, {school.city}, {school.state}</p>
               <p className="text-white mb-2">Contact: {school.contactNumber}</p>
               <p className="text-white mb-2">Email: {school.emailId}</p>
-              
             </div>
           </div>
         ))}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import Image from 'next/image';
 
 function AddSchool() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -84,9 +85,11 @@ function AddSchool() {
       {/* School picture upload */}
       <div className="flex flex-col items-center gap-4 mb-6">
         <label htmlFor="profilePic" className="text-white font-bold text-xl">School Image</label>
-        <img
+        <Image
           src={imageSrc}
           alt="School Avatar"
+          width={128} // Update with appropriate width
+          height={128} // Update with appropriate height
           className="h-32 w-32 rounded-lg border-4 border-gray-200 object-cover"
           onError={() => setImageSrc("https://placehold.co/300x300.png")}
         />
