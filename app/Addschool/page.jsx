@@ -1,6 +1,6 @@
 "use client"
 import React,{useEffect} from 'react'
-import AddSchool from "@/app/components/addSchool"
+import AddSchools from "@/app/components/addSchool"
 const page = () => {
   useEffect(() => {
     document.body.style.overflow = 'hidden'; 
@@ -10,7 +10,7 @@ const page = () => {
   }, []);
   return (
     <div  className='h-[75vh] overflow-auto no-scrollbar'>
-        <AddSchool/>
+        <AddSchools/>
     </div>
   )
 }
