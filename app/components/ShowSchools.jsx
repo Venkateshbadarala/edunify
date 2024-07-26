@@ -16,9 +16,9 @@ const ShowSchools = () => {
         }
         const data = await response.json();
         setSchools(data);
-        setLoading(false);
       } catch (error) {
         setError(error.message);
+      } finally {
         setLoading(false);
       }
     };
@@ -27,11 +27,27 @@ const ShowSchools = () => {
   }, []);
 
   if (loading) {
-    return <div className="flex items-center justify-center h-screen"><div className="text-xl text-white">Loading...</div></div>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-xl text-white">Loading...</div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="flex items-center justify-center h-screen"><div className="text-xl text-red-600">Error: {error}</div></div>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-xl text-red-600">Error: {error}</div>
+      </div>
+    );
+  }
+
+  if (schools.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-xl text-white">No schools found.</div>
+      </div>
+    );
   }
 
   return (
@@ -42,7 +58,7 @@ const ShowSchools = () => {
           <div key={school.id} className="bg-cyan-800 shadow-md rounded-lg overflow-hidden">
             <Image
               src={school.image || 'https://placehold.co/300x300.png'}
-              alt={school.name}
+              alt={`Image of ${school.name}`}
               width={300}
               height={300}
               className="w-full h-48 object-cover"
