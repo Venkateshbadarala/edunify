@@ -2,7 +2,7 @@
 import Showschool from "@/app/Showschool/page";
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import AddSchool from "@/app/Addschool/page";
+import AddSchool from "@/app/Postschool/page";
 
 export default function Home() {
   const [addSchool, setAddSchool] = useState(false);

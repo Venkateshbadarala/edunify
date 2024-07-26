@@ -67,7 +67,7 @@ function AddSchool() {
     console.log('Form Data to be sent:', formData); // Log form data before sending
 
     try {
-      const response = await axios.post('/api/data/addSchool', formData);
+      const response = await axios.post('/api/data/postSchool', formData);
 
       if (response.status === 200) {
         alert('School data added successfully!');

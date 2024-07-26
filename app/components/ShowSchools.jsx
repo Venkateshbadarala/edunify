@@ -10,7 +10,7 @@ const ShowSchools = () => {
   useEffect(() => {
     const fetchSchools = async () => {
       try {
-        const response = await fetch('/api/data/showSchools');
+        const response = await fetch('/api/data/getSchools');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
