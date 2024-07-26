@@ -7,9 +7,20 @@ export async function GET(req: NextRequest) {
     const connection = await connectToDatabase();
 
     // Fetch schools from the database
-    const [schools] = await connection.execute<RowDataPacket[]>(
+    const [rows] = await connection.execute<RowDataPacket[]>(
       'SELECT id, name, address, city, state, contactNumber, emailId, image FROM schools'
     );
+
+    const schools = rows.map((row: RowDataPacket) => ({
+      id: row.id,
+      name: row.name,
+      address: row.address,
+      city: row.city,
+      state: row.state,
+      contactNumber: row.contactNumber,
+      emailId: row.emailId,
+      image: row.image,
+    }));
 
     return NextResponse.json(schools);
   } catch (error) {
