@@ -4,10 +4,11 @@ const nextConfig = {
       domains: ['res.cloudinary.com', 'placehold.co'],
     },
     env: {
-      MYSQL_HOST: process.env.MYSQL_HOST,
-      MYSQL_USER: process.env.MYSQL_USER,
-      MYSQL_PASSWORD: process.env.MYSQL_PASSWORD,
-      MYSQL_DATABASE: process.env.MYSQL_DATABASE,
+      DB_HOST: process.env.DB_HOST,
+      DB_USER: process.env.DB_USER,
+      DB_PASSWORD: process.env.DB_PASSWORD,
+      DB_NAME: process.env.DB_NAME,
+      DB_PORT: process.env.DB_PORT
     },
   };
   
