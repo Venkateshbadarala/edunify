@@ -38,14 +38,15 @@ const ShowSchools = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6 text-center text-white">Schools</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {schools.map((school) => (
+        {schools.map((school, index) => (
           <div key={school.id} className="bg-cyan-800 shadow-md rounded-lg overflow-hidden">
             <Image
               src={school.image || 'https://placehold.co/300x300.png'}
               alt={school.name}
-              width={300} // Update with appropriate width
-              height={300} // Update with appropriate height
+              width={300}
+              height={300}
               className="w-full h-48 object-cover"
+              priority={index < 3} // Add priority to the first few images
             />
             <div className="p-4">
               <h2 className="text-2xl font-semibold mb-2">{school.name}</h2>
